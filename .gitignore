@@ -1,0 +1,34 @@
+# Python
+__pycache__/
+*.py[cod]
+*.so
+.venv/
+venv/
+*.egg-info/
+dist/
+build/
+
+# Local config (may contain your paths / overrides) — never commit it
+config.json
+.env
+.env.*
+
+# Credentials — NEVER commit these
+*api*.txt
+*credentials*.json
+*secret*
+*.pem
+*.key
+
+# Model files (Kronos model ~200MB is never bundled)
+*.onnx
+*.bin
+*.pt
+*.safetensors
+model/
+models/
+
+# Logs and runtime state
+*.log
+*.pid
+.DS_Store
