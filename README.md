@@ -1,16 +1,80 @@
 # 🦁 TradeBeast
 
 > **The Ultimate Crypto Trading Beast — every crypto MCP fused into one unstoppable trading machine.**
+>
+> **One MCP server. 295 tools. 13 sources. Zero API keys to start.**
+> Plug it into Claude and your AI sees the whole crypto market at once.
 
+[![GitHub stars](https://img.shields.io/github/stars/muslim-ahmad-wagay/TradeBeast?style=social)](https://github.com/muslim-ahmad-wagay/TradeBeast)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Python 3.12](https://img.shields.io/badge/Python-3.12-blue.svg)](https://www.python.org/)
 [![MCP](https://img.shields.io/badge/MCP-stdio-green.svg)](https://modelcontextprotocol.io/)
 [![Tools](https://img.shields.io/badge/Tools-295-orange.svg)](docs/TOOLS.md)
 [![Bitget](https://img.shields.io/badge/Bitget-official-00D1C1.svg)](https://www.bitget.com/)
 
-One MCP server. **295 tools. 13 sources.** Plug it into Claude Desktop, Muse, or any MCP client and your AI can see the whole crypto market at once — tickers and order books from 100+ exchanges, Binance technicals, Smart Money Concepts, Hyperliquid flow, derivatives intel, funding rates, TradingView screeners, a local ML forecast, and your own Bitget account.
+**⭐ If this helps you trade smarter, star the repo — it takes 2 seconds and helps more traders find the beast.**
 
-No more juggling a dozen MCP servers. **Feed the beast once, and it hunts everywhere.**
+No more juggling a dozen MCP servers. Tickers and order books from 100+ exchanges, Binance technicals, Smart Money Concepts, Hyperliquid flow, derivatives intel, funding rates, TradingView screeners, a local ML forecast, and your own Bitget account — all behind **one connection**.
+
+**Feed the beast once, and it hunts everywhere.**
+
+---
+
+## ⚡ 60-Second Setup
+
+No API keys needed. No account signup. Four commands and you're hunting:
+
+```bash
+git clone https://github.com/muslim-ahmad-wagay/TradeBeast.git
+cd TradeBeast
+python3.12 -m venv .venv
+.venv/bin/pip install -r requirements.txt
+```
+
+Then tell Claude about the beast. Paste this into your Claude Desktop config (`claude_desktop_config.json`), fixing the two paths:
+
+```json
+{
+  "mcpServers": {
+    "tradebeast": {
+      "command": "/absolute/path/to/TradeBeast/.venv/bin/python",
+      "args": ["/absolute/path/to/TradeBeast/tradebeast.py"]
+    }
+  }
+}
+```
+
+Restart Claude Desktop. **Done.** You now have **254 tools** with zero credentials.
+
+That's it — the beast works out of the box. Bitget and Kronos are optional extras (below).
+
+---
+
+## 🎯 Easy Usage — just ask your AI
+
+No commands to memorize. Talk to Claude like a trader:
+
+| What you want | Copy-paste this prompt |
+|---|---|
+| Find a trade | `Scan BTC/USDT, ETH/USDT and SOL/USDT — give me the best setup with entry, stop-loss and take-profit` |
+| Hunt a scalp | `Find me a scalp setup on Bitget: high momentum, clean structure, low funding` |
+| Check the crowd | `Is IDOL/USDT crowded? Compare funding rates across exchanges` |
+| See the future | `Give me the 4h Kronos forecast for BTC/USDT` |
+| Check my money | `Show my Bitget futures positions and unrealized P&L` |
+| The full beast scan | `Run the full multi-source scan: TradingView + Kronos + funding + RSI divergence, then give me ONE verdict` |
+| Learn a coin | `Explain OGN/USDT: trend, key levels, RSI, MACD, funding and forecast — in plain English` |
+
+**First 3 prompts to try:** the "Find a trade" one, then "Check the crowd", then "The full beast scan". That's the whole workflow.
+
+---
+
+## 🏆 Why traders love it
+
+- **One server instead of thirteen** — a single stdio connection, no port juggling, no config hell.
+- **Works with zero keys** — 254 tools live before you ever touch an API key.
+- **Self-healing** — a sub-server crashes mid-call? The beast reconnects and retries automatically.
+- **Safe by default** — read-only out of the box. Withdrawals, transfers and leverage changes are blocked at the aggregator, not just hidden.
+- **Free forever** — MIT licensed. No subscription, no paywall, no "pro tier".
 
 ---
 
@@ -43,7 +107,7 @@ Full catalog: **[docs/TOOLS.md](docs/TOOLS.md)** (generated from the live server
 ## 🚀 Quickstart
 
 ```bash
-git clone https://github.com/<you>/TradeBeast.git
+git clone https://github.com/muslim-ahmad-wagay/TradeBeast.git
 cd TradeBeast
 
 python3.12 -m venv .venv
@@ -94,11 +158,7 @@ Run your local Kronos forecast server, then start TradeBeast. Override the URL w
   "mcpServers": {
     "tradebeast": {
       "command": "/absolute/path/to/TradeBeast/.venv/bin/python",
-      "args": ["/absolute/path/to/TradeBeast/tradebeast.py"],
-      "env": {
-        "HTTPS_PROXY": "http://your-proxy:3128",
-        "NODE_EXTRA_CA_CERTS": "/path/to/ca-bundle.pem"
-      }
+      "args": ["/absolute/path/to/TradeBeast/tradebeast.py"]
     }
   }
 }
@@ -121,6 +181,8 @@ Point it at the same command as a stdio server. Example `mcp.json`:
 ```
 
 With Bitget enabled, add the three `BITGET_*` variables to `env` (never commit them).
+
+> Behind a corporate proxy? Add `"HTTPS_PROXY": "http://your-proxy:3128"` and `"NODE_EXTRA_CA_CERTS": "/path/to/ca-bundle.pem"` to `env`.
 
 ---
 
@@ -193,6 +255,28 @@ Sub-server paths in the defaults assume the standard layout (`~/workspace/custom
 BITGET_API_KEY=... BITGET_SECRET_KEY=... BITGET_PASSPHRASE=... \
   ~/workspace/custom-connectors/_shared-venv/bin/python tests/smoke_test.py --with-bitget
 ```
+
+---
+
+## 📣 Share the beast
+
+Help it go viral — copy, paste, post:
+
+**X / Twitter:**
+
+> I plugged ONE MCP server into Claude and it sees 295 crypto tools — tickers from 100+ exchanges, funding rates, TradingView, SMC, a local ML forecast and my Bitget account. All in 60 seconds, zero API keys.
+>
+> 🦁 TradeBeast: https://github.com/muslim-ahmad-wagay/TradeBeast
+
+**Reddit (r/CryptoCurrency, r/algotrading, r/ClaudeAI):**
+
+> Title: TradeBeast — one MCP server, 295 crypto tools, 60-second setup
+>
+> Body: I fused 13 crypto MCP servers into one. Claude can now scan the whole market, compare funding, run TradingView + a local ML forecast, and check my Bitget positions — from a single connection. Free, MIT, no keys needed to start: https://github.com/muslim-ahmad-wagay/TradeBeast
+
+**Discord / Telegram:**
+
+> 🦁 TradeBeast — 295 crypto tools in ONE MCP server. 60-second setup, no API keys needed. https://github.com/muslim-ahmad-wagay/TradeBeast
 
 ---
 
